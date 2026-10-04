@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --port 18468",
     "build": "tsc --noEmit -p tsconfig.app.json && vite build",
-    "preview": "vite preview --port 18468"
+    "preview": "vite preview --port 18468",
+    "test:smoke": "esbuild scripts/smoke.ts --bundle --platform=node --format=cjs --outfile=node_modules/.cache/smoke.cjs --log-level=error --define:import.meta.env='{}' && node node_modules/.cache/smoke.cjs"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.10.4",
